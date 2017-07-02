@@ -22,7 +22,7 @@
             
             var connection;
             var player;
-            var others = {};
+            var players = {};
                                
             function startGame(){             
                 if(beast){
@@ -35,7 +35,7 @@
                     player.x = 15;
                     player.y = 15;
                 }
-                others[name] = player;            
+                players[name] = player;            
                 setWalls();
                 gameArea.start(); 
             }
@@ -51,14 +51,15 @@
                 walls.addWall(gameArea.width - boundaryThickness, 0, 
                                         boundaryThickness, gameArea.height);
           
-                //safety zone
+                //safety zones
                 walls.addWall(0, 30, 50, 10);
+                walls.addWall(gameArea.width -50, gameArea.height - 40, 50, 10);
                 
                 //internal walls
                 walls.addWall(100, 100, 10, 100);
                 walls.addWall(100, 400, 100, 10);
                 walls.addWall(300, 100, 100, 10);
-                walls.addWall(600, 300, 100, 100);
+                walls.addWall(600, 100, 100, 100);
             }
 
             var gameArea = {
@@ -94,9 +95,8 @@
                 else{
                     player.resetPos();
                 }
-               // player.draw();
-                for (var other in others){
-                    others[other].draw();
+                for (var p in players){
+                    players[p].draw();
                 }
                 walls.drawWalls();
             }
@@ -121,7 +121,7 @@
                 connection = new CONNECTION({
                     name:name, 
                     gameArea:gameArea,
-                    others:others,
+                    players:players,
                     playerCreator:playerCreator
                 });
                 startGame();

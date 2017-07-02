@@ -13,8 +13,8 @@ import java.util.Map;
  */
 public class Capture {
     
-    private static int playerRadius = 10;
-    private static int beastRadius = 20;
+    private static final int PLAYER_RADIUS = 10;
+    private static final int BEAST_RADIUS = 20;
    
     public static void checkCapture(Map<String, Player> players){
         for(Player b : players.values()){
@@ -23,7 +23,7 @@ public class Capture {
                     if(!p.isBeast()){
                         double distance = findDistance(b.getX(), b.getY(), p.getX(), p.getY());
                         //System.out.println("distance= " + distance);
-                        if(distance < playerRadius + beastRadius){
+                        if(distance < PLAYER_RADIUS + BEAST_RADIUS){
                             p.setAlive(false);
                         }
                     }

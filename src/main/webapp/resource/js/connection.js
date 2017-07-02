@@ -30,7 +30,7 @@ function CONNECTION(game) {
         if (action === "JOIN") {
             addPlayer(message.player);
         } else if (action === "UPDATE") {
-            updateOthers(message.players);
+            updatePlayers(message.players);
         } else if (action === "QUIT") {
             deletePlayer(message.player);
         }
@@ -46,21 +46,21 @@ function CONNECTION(game) {
         }
         p.x = player.x;
         p.y = player.y;
-        game.others[player.name] = p;
+        game.players[player.name] = p;
     }
 
     function deletePlayer(player) {
-        delete game.others[player.name];
+        delete game.players[player.name];
     }
 
-    function updateOthers(players) {
+    function updatePlayers(players) {
         for (var key in players) {
-            var other = game.others[key];
+            var player = game.players[key];
             var details = players[key];
-            other.alive = details.alive;
+            player.alive = details.alive;
             if (key !== game.name) {
-                other.x = details.x;
-                other.y = details.y;      
+                player.x = details.x;
+                player.y = details.y;      
             }
         }
     }

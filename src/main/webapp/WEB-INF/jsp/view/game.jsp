@@ -27,12 +27,14 @@
             function startGame(){             
                 if(beast){
                     player = playerCreator.createBeast();
+                    player.x = 50;
+                    player.y = 450;
                 }
                 else{
                     player = playerCreator.createPlayer(color);
+                    player.x = 15;
+                    player.y = 15;
                 }
-                player.x = 50;
-                player.y = 120;
                 others[name] = player;            
                 setWalls();
                 gameArea.start(); 
@@ -49,6 +51,9 @@
                 walls.addWall(gameArea.width - boundaryThickness, 0, 
                                         boundaryThickness, gameArea.height);
           
+                //safety zone
+                walls.addWall(0, 30, 50, 10);
+                
                 //internal walls
                 walls.addWall(100, 100, 10, 100);
                 walls.addWall(100, 400, 100, 10);

@@ -9,8 +9,8 @@ function PLAYER(ctx, beastImageSrc){
         this.speed = 2;
         this.velX = 0;
         this.velY = 0;
-        this.x = 0;
-        this.y = 0;
+        this.x = 15;
+        this.y = 15;
         this.radius = 10;
         this.draw = function () {
             if(this.alive){

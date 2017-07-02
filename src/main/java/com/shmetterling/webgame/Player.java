@@ -14,8 +14,8 @@ public class Player {
     private String name;
     private String color = "red";
     private boolean beast;
-    private int x;
-    private int y;
+    private int x = 15;
+    private int y = 15;
     private boolean alive = true;
     
     public Player(){};
@@ -29,6 +29,8 @@ public class Player {
         this.name = name;
         this.color = color;
         this.beast = beast;
+        this.x = 50;
+        this.y = 450;
     }
     
     public void setPosition(int x, int y){

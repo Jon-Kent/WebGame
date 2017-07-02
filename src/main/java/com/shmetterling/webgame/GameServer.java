@@ -84,6 +84,7 @@ public class GameServer {
 
         //only the broadcaster sends update to everyone
         if(session.equals(broadcaster)){
+            Capture.checkCapture(players);
             sendMessageToAll(new MultiplePlayerMessage(Action.UPDATE.name(), players));
         }
     }

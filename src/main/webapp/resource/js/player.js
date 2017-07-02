@@ -5,6 +5,7 @@
 function PLAYER(ctx, beastImageSrc){ 
     
     function Player(color) {
+        this.alive = true;
         this.speed = 2;
         this.velX = 0;
         this.velY = 0;
@@ -12,11 +13,13 @@ function PLAYER(ctx, beastImageSrc){
         this.y = 0;
         this.radius = 10;
         this.draw = function () {
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
-            ctx.fillStyle = color;
-            ctx.fill();
-            ctx.stroke();
+            if(this.alive){
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+                ctx.fillStyle = color;
+                ctx.fill();
+                ctx.stroke();
+            }
         };
         this.newPos = function () {
             this.x += this.velX;

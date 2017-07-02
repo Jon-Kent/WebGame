@@ -55,11 +55,12 @@ function CONNECTION(game) {
 
     function updateOthers(players) {
         for (var key in players) {
+            var other = game.others[key];
+            var details = players[key];
+            other.alive = details.alive;
             if (key !== game.name) {
-                var other = game.others[key];
-                var details = players[key];
                 other.x = details.x;
-                other.y = details.y;
+                other.y = details.y;      
             }
         }
     }

@@ -16,6 +16,7 @@ public class Player {
     private boolean beast;
     private int x;
     private int y;
+    private boolean alive = true;
     
     public Player(){};
     
@@ -54,5 +55,12 @@ public class Player {
     public boolean isBeast(){
         return beast;
     }
-      
+    
+    public void setAlive(boolean alive){
+        this.alive = alive;
+    }
+    
+    public boolean isAlive(){
+        return alive;
+    }     
 }

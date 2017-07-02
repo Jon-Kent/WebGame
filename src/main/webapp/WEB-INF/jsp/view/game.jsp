@@ -24,8 +24,7 @@
             var player;
             var others = {};
                                
-            function startGame(){
-                gameArea.start(); 
+            function startGame(){             
                 if(beast){
                     player = playerCreator.createBeast();
                 }
@@ -34,7 +33,9 @@
                 }
                 player.x = 50;
                 player.y = 120;
+                others[name] = player;            
                 setWalls();
+                gameArea.start(); 
             }
             
             function setWalls(){
@@ -88,7 +89,7 @@
                 else{
                     player.resetPos();
                 }
-                player.draw();
+               // player.draw();
                 for (var other in others){
                     others[other].draw();
                 }
